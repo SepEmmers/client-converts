@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yourusername.github.io/client-converts/sitemap.xml
+Sitemap: https://sepemmers.github.io/client-converts/sitemap.xml
