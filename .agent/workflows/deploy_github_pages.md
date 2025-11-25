@@ -29,12 +29,11 @@ git branch -M main
 git push -u origin main
 ```
 
-## 4. Enable GitHub Pages
+## 4. Enable GitHub Pages (Switch to Actions)
 1.  In your repository on GitHub, go to **Settings**.
 2.  Click **Pages** in the left sidebar.
-3.  Under **Build and deployment** > **Source**, select **Deploy from a branch**.
-4.  Under **Branch**, select `main` and `/ (root)`.
-5.  Click **Save**.
+3.  Under **Build and deployment** > **Source**, select **GitHub Actions**.
+4.  (The workflow we created will automatically appear/be used).
 
 ## 5. Final SEO Update
 Once deployed, GitHub will give you a URL (e.g., `https://yourusername.github.io/client-converts/`).
