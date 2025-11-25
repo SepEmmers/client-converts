@@ -67,6 +67,89 @@ header {
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto;
+}
+
+/* Bento Grid */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.tool-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--text-secondary);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+    background-color: var(--bg-card-hover);
+}
+
+.tool-card h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.tool-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: var(--accent-primary);
+    gap: 0.5rem;
+}
+
+.card-footer svg {
+    transition: transform 0.2s;
+}
+
+.tool-card:hover .card-footer svg {
+    transform: translateX(4px);
+}
+
+/* Request Section */
+.request-section {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    text-align: center;
+}
+
+.request-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.request-section p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.google-form-container {
     width: 100%;
     max-width: 640px;
     margin: 0 auto;
@@ -103,4 +186,120 @@ footer {
     padding: 4rem 0;
     color: var(--text-secondary);
     font-size: 0.875rem;
+}
+
+/* Share Section - 2025 Modern Style */
+.share-container {
+    margin: 4rem auto 2rem;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.share-title {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+/* Floating Dock Look */
+.share-fallback {
+    display: none; /* Hidden by default, shown via JS */
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(30, 41, 59, 0.7); /* Glassmorphism base */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 0.75rem 1rem;
+    border-radius: 9999px; /* Pill shape */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.share-fallback:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Icon Links */
+.share-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text-muted);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.share-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Brand Colors on Hover */
+.share-link[aria-label="Share on X"]:hover { color: #1DA1F2; background: rgba(29, 161, 242, 0.15); }
+.share-link[aria-label="Share on LinkedIn"]:hover { color: #0A66C2; background: rgba(10, 102, 194, 0.15); }
+.share-link[aria-label="Share on WhatsApp"]:hover { color: #25D366; background: rgba(37, 211, 102, 0.15); }
+
+/* Copy Link Button */
+.copy-link-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0 1.25rem;
+    height: 42px;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 0.5rem;
+}
+
+.copy-link-btn:hover {
+    background: var(--primary-hover);
+    transform: scale(1.05);
+}
+
+.copy-link-btn.copied {
+    background: #10b981; /* Success Green */
+}
+
+/* Native Share Button (Mobile) */
+.share-btn-primary {
+    display: none;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    transition: all 0.2s;
+}
+
+.share-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
 }
