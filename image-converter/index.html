@@ -89,6 +89,97 @@
             <section class="content-area">
                 <div id="drop-zone" class="drop-zone">
                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Image Converter - Client Converts</title>
+    <meta name="description" content="Batch convert and resize unlimited images locally. Convert JPG, PNG, WEBP formats instantly without server uploads.">
+    <meta name="keywords" content="bulk image converter, batch resize images, image format converter, webp converter, client side image tool">
+    <link rel="canonical" href="https://sepemmers.github.io/client-converts/image-converter/">
+    
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Bulk Image Converter - Client Converts">
+    <meta property="og:description" content="Convert and resize unlimited images instantly in your browser. Secure and free.">
+    <meta property="og:url" content="https://sepemmers.github.io/client-converts/image-converter/">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Bulk Image Converter",
+      "applicationCategory": "PhotoApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0" }
+    }
+    </script>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="tool-header">
+            <a href="../index.html" class="btn-back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to Tools
+            </a>
+            <h1>Bulk Image Converter</h1>
+            <p>Convert and resize unlimited images instantly. No server uploads.</p>
+        </header>
+
+        <main class="tool-grid">
+            <!-- Settings Panel -->
+            <aside class="settings-panel">
+                <div class="panel-section">
+                    <h3>Output Format</h3>
+                    <select id="format-select" class="input-select">
+                        <option value="image/webp">WEBP (Best Compression)</option>
+                        <option value="image/jpeg">JPG (Standard)</option>
+                        <option value="image/png">PNG (Lossless)</option>
+                    </select>
+                </div>
+
+                <div class="panel-section" id="quality-section">
+                    <h3>Quality: <span id="quality-value">80%</span></h3>
+                    <input type="range" id="quality-slider" min="1" max="100" value="80" class="input-range">
+                </div>
+
+                <div class="panel-section">
+                    <h3>Resize (Optional)</h3>
+                    <div class="input-group">
+                        <label>Max Width</label>
+                        <input type="number" id="max-width" placeholder="e.g. 1920" class="input-number">
+                    </div>
+                    <div class="input-group">
+                        <label>Max Height</label>
+                        <input type="number" id="max-height" placeholder="e.g. 1080" class="input-number">
+                    </div>
+                </div>
+
+                <button id="btn-convert" class="btn-primary full-width" disabled>Convert All</button>
+                <button id="btn-download-all" class="btn-secondary full-width hidden">Download All (ZIP)</button>
+                <button id="btn-clear" class="btn-text full-width">Clear List</button>
+            </aside>
+
+            <!-- Drop Zone & List -->
+            <section class="content-area">
+                <div id="drop-zone" class="drop-zone">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
                     <h3>Drag & Drop Images Here</h3>
                     <p>or click to select files</p>
                     <input type="file" id="file-input" multiple accept="image/*" style="display: none;">
@@ -97,10 +188,27 @@
                 <div id="file-list" class="file-list"></div>
             </section>
         </main>
+        <!-- Share Section -->
+        <section class="share-container" style="margin-top: 4rem;">
+            <div class="share-title">Share this tool</div>
+            <button id="share-btn" class="share-btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                Share
+            </button>
+            <div id="share-fallback" class="share-fallback">
+                <a href="https://twitter.com/intent/tweet?text=Bulk%20Image%20Converter%20-%20Local%20%26%20Fast!&url=https://sepemmers.github.io/client-converts/image-converter/" target="_blank" class="share-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                <button id="copy-link-btn" class="copy-link-btn">Copy Link</button>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Client Converts. Secure. Private. Fast.</p>
+        </footer>
     </div>
 
     <!-- JSZip for zipping -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="script.js"></script>
+    <script src="../share.js"></script>
 </body>
 </html>

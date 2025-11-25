@@ -56,6 +56,64 @@
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
                 <h3>Drag & Drop PDFs Here</h3>
                 <p>or click to select files</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure PDF Merger - Client Converts</title>
+    <meta name="description" content="Merge unlimited PDF files securely in your browser. No file size limits, no server uploads. Privacy focused PDF tool.">
+    <meta name="keywords" content="merge pdf, combine pdf, secure pdf tool, client side pdf merger, local pdf tool">
+    <link rel="canonical" href="https://sepemmers.github.io/client-converts/pdf-merger/">
+    
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Secure PDF Merger - Client Converts">
+    <meta property="og:description" content="Merge PDF files securely in your browser. No uploads, no limits.">
+    <meta property="og:url" content="https://sepemmers.github.io/client-converts/pdf-merger/">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Secure PDF Merger",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0" }
+    }
+    </script>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="tool-header">
+            <a href="../index.html" class="btn-back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to Tools
+            </a>
+            <h1>Secure PDF Merger</h1>
+            <p>Merge unlimited PDF files locally. Your documents never leave your device.</p>
+        </header>
+
+        <main class="tool-container">
+            <div id="drop-zone" class="drop-zone">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                <h3>Drag & Drop PDFs Here</h3>
+                <p>or click to select files</p>
                 <input type="file" id="file-input" multiple accept="application/pdf" style="display: none;">
             </div>
 
@@ -66,10 +124,27 @@
 
             <div id="file-list" class="file-list"></div>
         </main>
+        <!-- Share Section -->
+        <section class="share-container" style="margin-top: 4rem;">
+            <div class="share-title">Share this tool</div>
+            <button id="share-btn" class="share-btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                Share
+            </button>
+            <div id="share-fallback" class="share-fallback">
+                <a href="https://twitter.com/intent/tweet?text=Secure%20PDF%20Merger%20-%20No%20Uploads!&url=https://sepemmers.github.io/client-converts/pdf-merger/" target="_blank" class="share-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                <button id="copy-link-btn" class="copy-link-btn">Copy Link</button>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Client Converts. Secure. Private. Fast.</p>
+        </footer>
     </div>
 
     <!-- PDF-Lib -->
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
     <script src="script.js"></script>
+    <script src="../share.js"></script>
 </body>
 </html>

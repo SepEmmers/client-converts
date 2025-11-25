@@ -97,6 +97,105 @@
                     <textarea id="csv-input" class="code-editor" placeholder='name,age,city
 "John Doe",30,"New York"'></textarea>
                 </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON <-> CSV Converter - Client Converts</title>
+    <meta name="description" content="Convert JSON to CSV and CSV to JSON instantly. Handle large datasets in your browser with table preview. Free developer tool.">
+    <meta name="keywords" content="json to csv, csv to json, data converter, developer tools, json formatter, client side data tool">
+    <link rel="canonical" href="https://sepemmers.github.io/client-converts/json-csv/">
+    
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="JSON <-> CSV Converter - Client Converts">
+    <meta property="og:description" content="Convert large JSON/CSV datasets instantly in your browser. Bi-directional with preview.">
+    <meta property="og:url" content="https://sepemmers.github.io/client-converts/json-csv/">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "JSON CSV Converter",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0" }
+    }
+    </script>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="tool-header">
+            <a href="../index.html" class="btn-back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to Tools
+            </a>
+            <h1>JSON <-> CSV Converter</h1>
+            <p>Convert data instantly. Handle large datasets right in your browser.</p>
+        </header>
+
+        <main>
+            <div class="converter-grid">
+                <!-- JSON Side -->
+                <div class="editor-col">
+                    <div class="col-header">
+                        <h3>JSON</h3>
+                        <div class="col-actions">
+                            <button class="btn-sm" onclick="document.getElementById('file-json').click()">Upload</button>
+                            <button class="btn-sm" id="btn-copy-json">Copy</button>
+                            <button class="btn-sm" id="btn-download-json">Download</button>
+                        </div>
+                        <input type="file" id="file-json" accept=".json" style="display: none;">
+                    </div>
+                    <textarea id="json-input" class="code-editor" placeholder='[
+  {
+    "name": "John Doe",
+    "age": 30,
+    "city": "New York"
+  }
+]'></textarea>
+                </div>
+
+                <!-- Controls -->
+                <div class="controls-col">
+                    <button id="btn-to-csv" class="btn-convert" title="Convert JSON to CSV">
+                        JSON &rarr; CSV
+                    </button>
+                    <button id="btn-to-json" class="btn-convert" title="Convert CSV to JSON">
+                        JSON &larr; CSV
+                    </button>
+                </div>
+
+                <!-- CSV Side -->
+                <div class="editor-col">
+                    <div class="col-header">
+                        <h3>CSV</h3>
+                        <div class="col-actions">
+                            <button class="btn-sm" onclick="document.getElementById('file-csv').click()">Upload</button>
+                            <button class="btn-sm" id="btn-copy-csv">Copy</button>
+                            <button class="btn-sm" id="btn-download-csv">Download</button>
+                        </div>
+                        <input type="file" id="file-csv" accept=".csv" style="display: none;">
+                    </div>
+                    <textarea id="csv-input" class="code-editor" placeholder='name,age,city
+"John Doe",30,"New York"'></textarea>
+                </div>
             </div>
 
             <div class="preview-section">
@@ -106,10 +205,28 @@
                 </div>
             </div>
         </main>
+
+        <!-- Share Section -->
+        <section class="share-container" style="margin-top: 4rem;">
+            <div class="share-title">Share this tool</div>
+            <button id="share-btn" class="share-btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                Share
+            </button>
+            <div id="share-fallback" class="share-fallback">
+                <a href="https://twitter.com/intent/tweet?text=JSON%20to%20CSV%20Converter%20-%20Fast%20%26%20Local!&url=https://sepemmers.github.io/client-converts/json-csv/" target="_blank" class="share-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                <button id="copy-link-btn" class="copy-link-btn">Copy Link</button>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Client Converts. Secure. Private. Fast.</p>
+        </footer>
     </div>
 
     <!-- PapaParse for robust CSV parsing -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <script src="script.js"></script>
+    <script src="../share.js"></script>
 </body>
 </html>
