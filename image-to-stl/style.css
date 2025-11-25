@@ -1,0 +1,124 @@
+/* Image to STL Specific Styles */
+
+.converter-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    height: calc(100vh - 200px); /* Adjust based on header/footer */
+    min-height: 600px;
+}
+
+/* Controls Sidebar */
+.controls {
+    background-color: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.control-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.control-group input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent-primary);
+}
+
+.control-group input[type="number"] {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    accent-color: var(--accent-primary);
+}
+
+.file-upload {
+    border: 2px dashed var(--border-color);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.file-upload:hover {
+    border-color: var(--accent-primary);
+    background-color: rgba(56, 189, 248, 0.05);
+}
+
+/* Preview Area */
+.preview-area {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+}
+
+.preview-box {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-label {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: rgba(15, 23, 42, 0.7);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    pointer-events: none;
+    z-index: 10;
+}
+
+canvas {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#three-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .converter-container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    
+    .preview-area {
+        height: 600px;
+    }
+}

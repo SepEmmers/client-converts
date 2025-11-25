@@ -1,0 +1,146 @@
+/* PDF Merger Styles */
+
+.tool-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.tool-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Drop Zone */
+.drop-zone {
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    text-align: center;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: var(--bg-card);
+    margin-bottom: 2rem;
+}
+
+.drop-zone:hover, .drop-zone.drag-over {
+    border-color: var(--accent-primary);
+    background-color: var(--bg-card-hover);
+    color: var(--accent-primary);
+}
+
+.drop-zone svg {
+    margin-bottom: 1rem;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.btn-primary {
+    background-color: var(--accent-primary);
+    color: var(--bg-page);
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+.btn-primary:disabled {
+    background-color: var(--bg-card-hover);
+    color: var(--text-secondary);
+    cursor: not-allowed;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    padding: 0.75rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-text:hover {
+    color: var(--text-primary);
+}
+
+.hidden {
+    display: none;
+}
+
+/* File List */
+.file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.file-item {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pdf-icon {
+    color: #ef4444; /* Red for PDF */
+}
+
+.file-info {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.file-name {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.file-size {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.file-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-icon {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    border-radius: 4px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-icon:hover {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    border-color: var(--text-secondary);
+}
+
+.btn-remove:hover {
+    color: #ef4444;
+    border-color: #ef4444;
+}
